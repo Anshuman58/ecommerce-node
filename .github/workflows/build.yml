@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Generate prisma client
-        run: npm run db:generate
+        run: npx prisma generate
 
       - name: Run server
         run: npm run dev
