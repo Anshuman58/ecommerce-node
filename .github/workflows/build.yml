@@ -24,5 +24,12 @@ jobs:
       - name: Generate prisma client
         run: npx prisma generate
 
-      - name: Run server
-        run: npm run dev
+      - name: Build TypeScript
+        run: npm run build
+
+      - name: Verify build
+        run: |
+          npm run start &
+          PID=$!
+          sleep 5
+          kill $PID
